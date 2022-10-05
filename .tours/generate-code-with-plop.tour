@@ -1,0 +1,41 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Generate code with plop",
+  "steps": [
+    {
+      "file": "plopfile.js",
+      "description": "Se crea una función que recibe un parámetro, este es un objeto plop",
+      "line": 1
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Se puede crear un generator con `plop.setGenerator()` el cual recibe el nombre del generator (en este caso `post`) y un objeto con la configuración del generator",
+      "line": 2
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Una descripción para explicar que va a hacer este generator",
+      "line": 3
+    },
+    {
+      "file": "plopfile.js",
+      "description": "En la propiedad `prompts` se crean los prompts (preguntas) que se van a mostras en la terminal al ejecutar este generator, cara prompt es un objeto con 3 propiedades\n\n- type: Formato de la pregunta\n- name: Nombre que se usara en el archivo hbs y/o en el action\n- message: El mensaje que se va a mostrar al usuario al ejecutar el generator\n\nLa lista types se pueden encontrar aqui [types](https://github.com/SBoudrias/Inquirer.js/#prompt-types)",
+      "line": 4
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Los `actions` son las acciones que se ejecutaran (crear/modificar archivos o agregar varios archivos).\n\nCada item de `actions` que tendra propiedades diferentes dependiendo del tipo. En este caso es de tipo `add`, por lo que tienen las siguientes propiedades:\n\n- path: La ruta en donde se creara el archivo\n- templateFile: La ruta al archivo hbs que servida como plantilla\n- data: Un objeto de variables adicionales que se puede mostrar en el hbs (template)\n\nYa que esta es de tipo `add` posee ",
+      "line": 16
+    },
+    {
+      "file": "plopfile.js",
+      "description": "En el `path` se puede usar handlebars, en este caso lo usamos para obtener el valor de prompt `title` y pasarlo por un helper llamado `dashCase` que se encarga colocar todo el valor en minusculas y cambiar los espacios por dashes (`-`)",
+      "line": 19
+    },
+    {
+      "file": ".templates/post.hbs",
+      "description": "El en archivo hbs, se puede usar las variables definidas en el generator\n\n- `title` que viene el name del prompts\n- `date` que viene de `data` del action\n- `description` que viene del name del prompts",
+      "line": 2
+    }
+  ]
+}
