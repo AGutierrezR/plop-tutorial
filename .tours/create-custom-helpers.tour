@@ -1,0 +1,61 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Create Custom Helpers",
+  "steps": [
+    {
+      "file": "plopfile.js",
+      "description": "Para crear un helper, se hace uso del objeto `plop` con la propiedad `setHelper`, el primer parámetro es el nombre del helper (con este se llamara) y el segundo parámetro se crea la funcionalidad del helper\n\nEn este caso es una función que devuelve la fecha actual en formato ISO.",
+      "line": 4
+    },
+    {
+      "file": ".templates/post.hbs",
+      "description": "Se usa el helper recien creado `currentDate`",
+      "line": 3,
+      "selection": {
+        "start": {
+          "line": 4,
+          "character": 17
+        },
+        "end": {
+          "line": 4,
+          "character": 28
+        }
+      }
+    },
+    {
+      "file": "package.json",
+      "description": "Se instala el paquete `slugify` para poder procesar el title ya que si usamos comillas (`'`) estas no son procesadas correctamente al crear el directorio",
+      "line": 15
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Se importa `slugify`",
+      "line": 1
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Se crea un helper que procesa el string, lo hace lowercase y le quita cualquier comilla simple (`'`)",
+      "line": 5
+    },
+    {
+      "file": ".templates/post.hbs",
+      "description": "Se usan tres `{{{}}}` para evitar que hbs procese el string, queremos que lo muestre como lo escribimos en el prompt",
+      "line": 2,
+      "selection": {
+        "start": {
+          "line": 4,
+          "character": 17
+        },
+        "end": {
+          "line": 4,
+          "character": 28
+        }
+      }
+    },
+    {
+      "file": ".templates/post.hbs",
+      "description": "Se usan tres {{{}}} para evitar que hbs procese el string, queremos que lo muestre como lo escribimos en el prompt",
+      "line": 4
+    }
+  ]
+}
