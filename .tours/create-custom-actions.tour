@@ -1,0 +1,21 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Create custom actions",
+  "steps": [
+    {
+      "file": "plopfile.js",
+      "description": "Al igual que para crear helpers, se hace uso del objeto `prop` llamando al metodo `setActionType()`\n\nSu primer parámetro es el nombre del action, y el segundo parámetro es un callback que recibe 3 parametros\n\n- answer: Es un objeto que tiene los resultados de los prompts, el formato seria `{ [name1]: value, [name2]: value, ...  }`\n- config: Es un objeto que tiene las propiedades del custom action en cuestion\n- plop: Es el objeto `plop`",
+      "line": 10
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Ya que hacemos uso de handlebar en la propiedad `dest` de esta action, usamos `plop.renderString()` para que pueda parsear el valor de la propiedad usando las propiedades de `answer`",
+      "line": 12
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Se hace uso del action que hemos creado, usando el mismo nombre (en este caso `copy`) y establecer propiedades adicionales\n\nHay que tomar en cuenta que no es necesario agregarle propiedades adicionales, ya que se puede definir toda la funcionalidad en el `.setActionType`, pero se puede hacer mas configurable si se agregan propiedades",
+      "line": 38
+    }
+  ]
+}
