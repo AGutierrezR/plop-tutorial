@@ -1,0 +1,56 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Create a Pack (plugin)",
+  "steps": [
+    {
+      "file": "plop/pack.js",
+      "description": "Si se quiere separar la logica y no tener un plop hinchado, en este caso se crea otra función que recibe un objeto `plop` \n\nY en esta función se establecen los helpers y actionTypes que queremos",
+      "line": 4
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Al quere cargar estos packs en el plop principal, tenemos que hacer la funcion `async`",
+      "line": 1
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Se usa el método `plop.load()` que recibe la ruta del pack, un objeto vacio y luego un objeto que indica que va a importar (en este caso queres los `helpers` y los `actionTypes`)",
+      "line": 2
+    },
+    {
+      "file": "plop/helpers.js",
+      "description": "Podemos crear un pack con solo los helpers",
+      "line": 3
+    },
+    {
+      "file": "plop/actions.js",
+      "description": "Y uno con solo los actions",
+      "line": 3
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Y cargarlos los helpers",
+      "line": 3
+    },
+    {
+      "file": "plopfile.js",
+      "description": "y los actions por separado",
+      "line": 4
+    },
+    {
+      "file": "plop/helpers.js",
+      "description": "Ademas se puede establecer que este pack solo importa los `helpers` por defecto",
+      "line": 4
+    },
+    {
+      "file": "plop/actions.js",
+      "description": "Y que este exporta los `actionTypes` por defecto",
+      "line": 4
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Y no tener que pasar el objeto de configuración",
+      "line": 5
+    }
+  ]
+}

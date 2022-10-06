@@ -1,18 +1,9 @@
-const fs = require('fs')
-const path = require('path')
-const slugify = require('slugify')
-
-const config = (plop) => {
-  plop.setHelper('currentDate', () => new Date().toISOString())
-  plop.setHelper('slugify', (s) => slugify(s, { lower: true, remove: /[']/g }))
-
-  // Custom Actions
-  plop.setActionType('copy', (answer, config, plop) => {
-    const src = plop.renderString(config.src, answer)
-    const dest = plop.renderString(config.dest, answer)
-
-    fs.copyFileSync(src, dest)
-  })
+const config = async (plop) => {
+  // await plop.load('./plop/pack.js', {}, { helpers: true, actionTypes: true })
+  // await plop.load('./plop/helpers.js', {}, { helpers: true })
+  // await plop.load('./plop/actions.js', {}, { actionTypes: true })
+  await plop.load('./plop/helpers.js')
+  await plop.load('./plop/actions.js')
 
   plop.setGenerator('post', {
     description: 'Generate file',
