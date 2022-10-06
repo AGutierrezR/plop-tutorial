@@ -1,0 +1,41 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Create Many Files",
+  "steps": [
+    {
+      "file": "plopfile.js",
+      "description": "Se crea un generador nuevo",
+      "line": 36
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Con un action de `type: 'addMany'`",
+      "line": 47
+    },
+    {
+      "file": "plopfile.js",
+      "description": "`destination` es el directorio donde se van a crear los archivos, aqui se pueden usar helper para procesar valores",
+      "line": 48
+    },
+    {
+      "file": "plopfile.js",
+      "description": "`base` permite quitar parte de la ruta donde se almacenan los templateFiles para que no se vean refleadas al crear los archivos",
+      "line": 49
+    },
+    {
+      "file": "plopfile.js",
+      "description": "`templateFiles` es donde se va a declarar la ubicación de donde se van a sacar los templates. Aqui le estamos diciendo que tome todos los `.hbs` de la carpeta `.templates/component/`",
+      "line": 50
+    },
+    {
+      "file": ".templates/component/{{pascalCase name}}.js.hbs",
+      "description": "Los archivos deben tener la variable en los nombres, asi cuando son procesados el resultado terminara tomando el valor que se establecio",
+      "line": 1
+    },
+    {
+      "file": ".templates/component/{{pascalCase name}}.css.hbs",
+      "description": "La extension del archivo debe ser `.formato.hbs`, al ser procesado se quita el `.hbs` y solo queda el `.formato`",
+      "line": 1
+    }
+  ]
+}

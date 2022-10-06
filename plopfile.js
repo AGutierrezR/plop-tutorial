@@ -32,6 +32,25 @@ const config = async (plop) => {
       },
     ],
   })
+
+  plop.setGenerator('component', {
+    description: 'Generate files',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is the name of the component?',
+      },
+    ],
+    actions: [
+      {
+        type: 'addMany',
+        destination: 'src/{{pascalCase name}}/',
+        base: '.templates/component',
+        templateFiles: ['.templates/component/*.hbs'],
+      },
+    ],
+  })
 }
 
 module.exports = config
