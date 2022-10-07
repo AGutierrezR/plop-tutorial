@@ -63,91 +63,17 @@ const config = async (plop) => {
     ],
     actions: [
       {
-        type: 'modify',
+        type: 'update-imports',
         path: 'src/components/index.js',
-        transform: (fileData, data) => {
-          const importTemplate = plop.renderString(data.template, data)
-          const fileLinesArray = fileData.split(/\n/)
-          const lastImportIdx = findLastIndex(includes('import'), fileLinesArray)
-
-          let newProp
-          if (lastImportIdx === -1) {
-            newProp = insert(0, `${importTemplate}\n`, fileLinesArray)
-          } else {
-            newProp = insert(lastImportIdx + 1, importTemplate, fileLinesArray)
-          }
-
-          return newProp.join('\n')
-        },
-        data: {
-          template: "import { {{camelCase name}} } from './{{camelCase name}}'",
-        },
+        template: "import { {{camelCase name}} } from './{{camelCase name}}'",
       },
       {
-        type: 'modify',
+        type: 'update-exports',
         path: 'src/components/index.js',
-        transform: (prop, data) => {
-          const exportTemplate = plop.renderString(data.template, data)
-
-          const existExportRegex = /export\s?{/g
-          const existExport = existExportRegex.test(prop)
-
-          if (!existExport) {
-            return `${prop}\nexport { ${exportTemplate} }\n`
-          }
-
-          const exportRegex = /export\s?{([^}]*)(?:})/
-          const exportContent = prop.match(exportRegex)
-
-          let newExportsContent
-          if (/\n/.test(exportContent)) {
-            const indentationRegex = /( {1,}).+/
-            const indentation = exportContent[1].match(indentationRegex)
-            newExportsContent = `${exportContent[1].slice(0, -1)}\n${
-              indentation[1]
-            }${exportTemplate},\n`
-          } else {
-            newExportsContent = `${exportContent[1].slice(
-              0,
-              -1
-            )}, ${exportTemplate} `
-          }
-
-          const newExports = exportContent[0].replace(
-            exportContent[1],
-            newExportsContent
-          )
-          const newFile = prop.replace(exportContent[0], newExports)
-
-          return newFile
-        },
-        data: {
-          template: '{{camelCase name}}',
-        },
+        template: '{{camelCase name}}',
       },
     ],
   })
 }
 
 module.exports = config
-
-function findLastIndex(fn, list) {
-  let idx = list.length - 1
-  while (idx >= 0) {
-    if (fn(list[idx])) {
-      return idx
-    }
-
-    idx -= 1
-  }
-  return -1
-}
-
-const insert = (idx, element, list) => {
-  idx = idx < list.length && idx >= 0 ? idx : list.length
-  var result = Array.prototype.slice.call(list, 0)
-  result.splice(idx, 0, element)
-  return result
-}
-
-const includes = (pattern) => (arr) => arr.includes(pattern)
