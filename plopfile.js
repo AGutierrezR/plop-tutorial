@@ -51,6 +51,31 @@ const config = async (plop) => {
       },
     ],
   })
+
+  plop.setGenerator('update-modules', {
+    description: 'Append text to files',
+    prompts: [
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name of the component',
+      },
+    ],
+    actions: [
+      {
+        type: 'append',
+        path: 'src/components/index.js',
+        pattern: /(\/\/ add import)/g,
+        template: "import {{camelCase name}} from './{{camelCase name}}'",
+      },
+      {
+        type: 'append',
+        path: 'src/components/index.js',
+        pattern: /(\/\/ add export)/g,
+        template: '  {{camelCase name}},',
+      },
+    ],
+  })
 }
 
 module.exports = config

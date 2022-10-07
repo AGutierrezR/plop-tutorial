@@ -1,0 +1,36 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Append to file",
+  "steps": [
+    {
+      "file": "plopfile.js",
+      "description": "Se crea un nuevo generator `update-modules`",
+      "line": 55
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Se utiliza el `type: append`",
+      "line": 66
+    },
+    {
+      "file": "plopfile.js",
+      "description": "El `path` es la dirección del archivo en el cual se van a hacer las modificaciones",
+      "line": 67
+    },
+    {
+      "file": "plopfile.js",
+      "description": "El `pattern` es el patron que se usara para indicar donde se va a agregar el contenido del template",
+      "line": 68
+    },
+    {
+      "file": "plopfile.js",
+      "description": "El `template` es el texto que se va a agregar despues del texto que coincide con el `pattern`",
+      "line": 69
+    },
+    {
+      "file": "src/components/index.js",
+      "description": "Aqui se deja el texto que coincide con el `pattern` asi se puede actualizar",
+      "line": 1
+    }
+  ]
+}
