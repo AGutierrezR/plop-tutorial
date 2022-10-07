@@ -1,0 +1,21 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Modify a file",
+  "steps": [
+    {
+      "file": "plopfile.js",
+      "description": "Se usar el `type: modify` que a diferencia de append, no agrega contenido, sino que cambia el contenido que coincidio con el `pattern`",
+      "line": 66
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Con `modify` y `append` se puede agregar una función `transform` en la que se pueden realizar mas modificaciones con JS en el contenido del archivo\n\nEsta función recibe el contenido del archivo del `path` y el objeto `data` establecido.",
+      "line": 68
+    },
+    {
+      "file": "plopfile.js",
+      "description": "Lo que se retorna sera el resultado final para el archivo",
+      "line": 80
+    }
+  ]
+}
